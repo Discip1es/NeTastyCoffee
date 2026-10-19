@@ -4,7 +4,7 @@ import ProductCard from './components/ProductCard';
 import ProductDetail from './components/ProductDetail';
 import Cart, { CartItem } from './components/Cart';
 import Checkout from './components/Checkout';
-import { Search, ShoppingCart, Coffee, Filter, X, Bean } from 'lucide-react';
+import { Search, ShoppingCart, Coffee, Filter, X } from 'lucide-react';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
