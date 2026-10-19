@@ -37,7 +37,7 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
                 {product.category}
               </span>
               <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700">
-                {product.roast} Roast
+                {product.roast} обжарка
               </span>
             </div>
 
@@ -56,23 +56,23 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
             <div className="grid grid-cols-3 gap-3 mb-5">
               <div className="flex flex-col items-center p-3 bg-stone-50 rounded-xl">
                 <MapPin size={16} className="text-amber-700 mb-1" />
-                <span className="text-[10px] text-stone-500">Origin</span>
+                <span className="text-[10px] text-stone-500">Происхождение</span>
                 <span className="text-xs font-medium text-stone-700">{product.origin}</span>
               </div>
               <div className="flex flex-col items-center p-3 bg-stone-50 rounded-xl">
                 <Mountain size={16} className="text-amber-700 mb-1" />
-                <span className="text-[10px] text-stone-500">Altitude</span>
+                <span className="text-[10px] text-stone-500">Высота</span>
                 <span className="text-xs font-medium text-stone-700">{product.altitude}</span>
               </div>
               <div className="flex flex-col items-center p-3 bg-stone-50 rounded-xl">
                 <Droplets size={16} className="text-amber-700 mb-1" />
-                <span className="text-[10px] text-stone-500">Process</span>
+                <span className="text-[10px] text-stone-500">Обработка</span>
                 <span className="text-xs font-medium text-stone-700 truncate w-full text-center">{product.process}</span>
               </div>
             </div>
 
             <div className="mb-5">
-              <h4 className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2">Tasting Notes</h4>
+              <h4 className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2">Вкусовые ноты</h4>
               <div className="flex flex-wrap gap-2">
                 {product.notes.map((note) => (
                   <span key={note} className="px-3 py-1.5 bg-amber-50 text-amber-800 text-xs rounded-full border border-amber-100">
@@ -94,7 +94,7 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
                 className="w-full flex items-center justify-center gap-2 bg-amber-800 text-white py-3.5 rounded-xl font-medium hover:bg-amber-700 transition-colors shadow-lg shadow-amber-800/20"
               >
                 <ShoppingCart size={18} />
-                Add to Cart
+                Добавить в корзину
               </button>
             </div>
           </div>

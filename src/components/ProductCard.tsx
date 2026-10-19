@@ -12,11 +12,11 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }: Pro
   const [isHovered, setIsHovered] = useState(false);
 
   const roastColor = {
-    'Light': 'bg-amber-100 text-amber-800',
-    'Medium-Light': 'bg-orange-100 text-orange-800',
-    'Medium': 'bg-yellow-100 text-yellow-800',
-    'Medium-Dark': 'bg-amber-200 text-amber-900',
-    'Dark': 'bg-stone-200 text-stone-800',
+    'Светлая': 'bg-amber-100 text-amber-800',
+    'Светло-средняя': 'bg-orange-100 text-orange-800',
+    'Средняя': 'bg-yellow-100 text-yellow-800',
+    'Средне-тёмная': 'bg-amber-200 text-amber-900',
+    'Тёмная': 'bg-stone-200 text-stone-800',
   }[product.roast] || 'bg-gray-100 text-gray-800';
 
   return (
@@ -37,9 +37,9 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }: Pro
           <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${roastColor}`}>
             {product.roast}
           </span>
-          {product.category === 'Premium' && (
+          {product.category === 'Премиум' && (
             <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
-              Premium
+              Премиум
             </span>
           )}
         </div>
@@ -50,14 +50,14 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }: Pro
             className="flex-1 flex items-center justify-center gap-1.5 bg-white/90 backdrop-blur-sm text-stone-800 py-2.5 rounded-xl text-sm font-medium hover:bg-white transition-colors"
           >
             <Eye size={16} />
-            Details
+            Подробнее
           </button>
           <button
             onClick={() => onAddToCart(product)}
             className="flex-1 flex items-center justify-center gap-1.5 bg-amber-800/90 backdrop-blur-sm text-white py-2.5 rounded-xl text-sm font-medium hover:bg-amber-800 transition-colors"
           >
             <ShoppingCart size={16} />
-            Add
+            В корзину
           </button>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }: Pro
             onClick={() => onAddToCart(product)}
             className="md:hidden px-3 py-1.5 bg-amber-800 text-white text-xs rounded-lg hover:bg-amber-700 transition-colors"
           >
-            Add to Cart
+            В корзину
           </button>
         </div>
       </div>

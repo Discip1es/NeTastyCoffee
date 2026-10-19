@@ -8,8 +8,8 @@ import { Search, ShoppingCart, Coffee, Filter, X } from 'lucide-react';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedRoast, setSelectedRoast] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Все');
+  const [selectedRoast, setSelectedRoast] = useState('Все');
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -21,8 +21,8 @@ function App() {
       const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.origin.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.notes.some(note => note.toLowerCase().includes(searchQuery.toLowerCase()));
-      const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
-      const matchesRoast = selectedRoast === 'All' || product.roast === selectedRoast;
+      const matchesCategory = selectedCategory === 'Все' || product.category === selectedCategory;
+      const matchesRoast = selectedRoast === 'Все' || product.roast === selectedRoast;
       return matchesSearch && matchesCategory && matchesRoast;
     });
   }, [searchQuery, selectedCategory, selectedRoast]);
@@ -72,11 +72,11 @@ function App() {
 
   const clearFilters = () => {
     setSearchQuery('');
-    setSelectedCategory('All');
-    setSelectedRoast('All');
+    setSelectedCategory('Все');
+    setSelectedRoast('Все');
   };
 
-  const hasActiveFilters = searchQuery || selectedCategory !== 'All' || selectedRoast !== 'All';
+  const hasActiveFilters = searchQuery || selectedCategory !== 'Все' || selectedRoast !== 'Все';
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -91,7 +91,7 @@ function App() {
               </div>
               <div>
                 <h1 className="text-lg font-bold text-stone-800 leading-tight">Artisan</h1>
-                <p className="text-[10px] text-stone-400 -mt-0.5 tracking-wider uppercase">Specialty Coffee</p>
+                <p className="text-[10px] text-stone-400 -mt-0.5 tracking-wider uppercase">Спешелти кофе</p>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ function App() {
                 <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400" />
                 <input
                   type="text"
-                  placeholder="Search coffee, origin, tasting notes..."
+                  placeholder="Поиск кофе, происхождения, вкусовых нот..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
@@ -123,7 +123,7 @@ function App() {
               className="relative flex items-center gap-2 px-4 py-2.5 bg-stone-50 hover:bg-stone-100 rounded-xl transition-colors border border-stone-200"
             >
               <ShoppingCart size={18} className="text-stone-700" />
-              <span className="hidden sm:inline text-sm font-medium text-stone-700">Cart</span>
+              <span className="hidden sm:inline text-sm font-medium text-stone-700">Корзина</span>
               {cartItemCount > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-amber-800 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                   {cartItemCount}
@@ -138,7 +138,7 @@ function App() {
               <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400" />
               <input
                 type="text"
-                placeholder="Search coffee..."
+                placeholder="Поиск кофе..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
@@ -152,35 +152,35 @@ function App() {
       <section className="relative overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-stone-900">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 relative">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-amber-100 text-xs font-medium mb-4">
               <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
-              Freshly Roasted Weekly
+              Свежая обжарка каждую неделю
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              Discover the Art of
-              <span className="block text-amber-300">Specialty Coffee</span>
+              Откройте для себя искусство
+              <span className="block text-amber-300">спешелти-кофе</span>
             </h2>
             <p className="text-amber-100/80 text-sm md:text-base max-w-lg mb-6">
-              Curated selection of the world's finest single-origin and artisan blend coffees, 
-              roasted to perfection for an exceptional cup every time.
+              Тщательно отобранные лучшие моносорта и авторские бленды со всего мира,
+              обжаренные до совершенства для исключительной чашки каждый раз.
             </p>
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
                 <span className="text-amber-300 text-lg">☕</span>
-                <span className="text-white text-xs font-medium">Ethically Sourced</span>
+                <span className="text-white text-xs font-medium">Этичное происхождение</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
                 <span className="text-amber-300 text-lg">🌍</span>
-                <span className="text-white text-xs font-medium">Single Origin</span>
+                <span className="text-white text-xs font-medium">Моносорта</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
                 <span className="text-amber-300 text-lg">✨</span>
-                <span className="text-white text-xs font-medium">Small Batch Roasted</span>
+                <span className="text-white text-xs font-medium">Малые партии</span>
               </div>
             </div>
           </div>
@@ -193,15 +193,15 @@ function App() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <h3 className="text-xl font-bold text-stone-800">Our Collection</h3>
-              <span className="text-sm text-stone-400">({filteredProducts.length} coffees)</span>
+              <h3 className="text-xl font-bold text-stone-800">Наша коллекция</h3>
+              <span className="text-sm text-stone-400">({filteredProducts.length} сортов)</span>
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="md:hidden flex items-center gap-2 px-3 py-2 bg-white border border-stone-200 rounded-xl text-sm text-stone-600 hover:bg-stone-50 transition-colors"
             >
               <Filter size={14} />
-              Filters
+              Фильтры
             </button>
           </div>
 
@@ -209,7 +209,7 @@ function App() {
           <div className={`${showFilters ? 'block' : 'hidden'} md:block space-y-4`}>
             {/* Categories */}
             <div>
-              <label className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2 block">Category</label>
+              <label className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2 block">Категория</label>
               <div className="flex flex-wrap gap-2">
                 {categories.map((cat) => (
                   <button
@@ -229,7 +229,7 @@ function App() {
 
             {/* Roast Level */}
             <div>
-              <label className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2 block">Roast Level</label>
+              <label className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2 block">Степень обжарки</label>
               <div className="flex flex-wrap gap-2">
                 {roastLevels.map((roast) => (
                   <button
@@ -254,7 +254,7 @@ function App() {
                 className="flex items-center gap-1.5 text-sm text-amber-700 hover:text-amber-900 font-medium transition-colors"
               >
                 <X size={14} />
-                Clear all filters
+                Сбросить все фильтры
               </button>
             )}
           </div>
@@ -277,13 +277,13 @@ function App() {
             <div className="w-20 h-20 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Coffee size={32} className="text-stone-300" />
             </div>
-            <h3 className="text-lg font-semibold text-stone-700 mb-2">No coffees found</h3>
-            <p className="text-stone-500 text-sm mb-4">Try adjusting your search or filters</p>
+            <h3 className="text-lg font-semibold text-stone-700 mb-2">Кофе не найден</h3>
+            <p className="text-stone-500 text-sm mb-4">Попробуйте изменить параметры поиска или фильтры</p>
             <button
               onClick={clearFilters}
               className="px-5 py-2.5 bg-amber-800 text-white rounded-xl text-sm font-medium hover:bg-amber-700 transition-colors"
             >
-              Clear Filters
+              Сбросить фильтры
             </button>
           </div>
         )}
@@ -300,35 +300,35 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-white font-bold">Artisan Coffee</h4>
-                  <p className="text-[10px] text-stone-500 tracking-wider uppercase">Specialty Coffee</p>
+                  <p className="text-[10px] text-stone-500 tracking-wider uppercase">Спешелти кофе</p>
                 </div>
               </div>
               <p className="text-sm text-stone-400 leading-relaxed">
-                Dedicated to bringing you the world's finest specialty coffees, 
-                ethically sourced and expertly roasted.
+                Мы стремимся предоставить вам лучший спешелти-кофе со всего мира,
+                этично sourced и экспертно обжаренный.
               </p>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-3">Quick Links</h4>
+              <h4 className="text-white font-semibold mb-3">Быстрые ссылки</h4>
               <ul className="space-y-2 text-sm text-stone-400">
-                <li className="hover:text-amber-400 cursor-pointer transition-colors">Our Story</li>
-                <li className="hover:text-amber-400 cursor-pointer transition-colors">Brewing Guides</li>
-                <li className="hover:text-amber-400 cursor-pointer transition-colors">Subscription</li>
-                <li className="hover:text-amber-400 cursor-pointer transition-colors">Wholesale</li>
+                <li className="hover:text-amber-400 cursor-pointer transition-colors">О нас</li>
+                <li className="hover:text-amber-400 cursor-pointer transition-colors">Руководства по завариванию</li>
+                <li className="hover:text-amber-400 cursor-pointer transition-colors">Подписка</li>
+                <li className="hover:text-amber-400 cursor-pointer transition-colors">Оптовые продажи</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-3">Contact</h4>
+              <h4 className="text-white font-semibold mb-3">Контакты</h4>
               <ul className="space-y-2 text-sm text-stone-400">
                 <li>hello@artisancoffee.com</li>
-                <li>+1 (555) 234-5678</li>
-                <li>Mon - Fri: 7am - 6pm</li>
-                <li>Sat - Sun: 8am - 4pm</li>
+                <li>+7 (495) 123-45-67</li>
+                <li>Пн - Пт: 7:00 - 18:00</li>
+                <li>Сб - Вс: 8:00 - 16:00</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-stone-800 mt-8 pt-8 text-center text-xs text-stone-500">
-            © 2026 Artisan Coffee. All rights reserved. Crafted with passion for specialty coffee.
+            © 2026 Artisan Coffee. Все права защищены. Создано с любовью к спешелти-кофе.
           </div>
         </div>
       </footer>

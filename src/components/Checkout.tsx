@@ -43,19 +43,19 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
             <CheckCircle size={40} className="text-green-600" />
           </div>
-          <h2 className="text-2xl font-bold text-stone-800 mb-2">Order Confirmed!</h2>
-          <p className="text-stone-500 mb-2">Thank you for your purchase.</p>
+          <h2 className="text-2xl font-bold text-stone-800 mb-2">Заказ подтверждён!</h2>
+          <p className="text-stone-500 mb-2">Спасибо за вашу покупку.</p>
           <p className="text-sm text-stone-400 mb-6">
-            Order #AC-{Math.random().toString(36).substr(2, 8).toUpperCase()} has been placed successfully.
-            We'll send you a confirmation email shortly.
+            Заказ №AC-{Math.random().toString(36).substr(2, 8).toUpperCase()} успешно оформлен.
+            Мы отправим вам подтверждение на email в ближайшее время.
           </p>
           <div className="bg-stone-50 rounded-xl p-4 mb-6">
             <div className="flex justify-between text-sm mb-1">
-              <span className="text-stone-500">Items</span>
+              <span className="text-stone-500">Товары</span>
               <span className="font-medium">{items.reduce((s, i) => s + i.quantity, 0)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-stone-500">Total</span>
+              <span className="text-stone-500">Итого</span>
               <span className="font-bold text-amber-900">${total.toFixed(2)}</span>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
             onClick={onComplete}
             className="w-full py-3.5 bg-amber-800 text-white rounded-xl font-medium hover:bg-amber-700 transition-colors"
           >
-            Continue Shopping
+            Продолжить покупки
           </button>
         </div>
       </div>
@@ -76,8 +76,8 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
         <div className="relative bg-white rounded-3xl max-w-sm w-full p-8 text-center shadow-2xl">
           <div className="w-16 h-16 border-4 border-amber-200 border-t-amber-800 rounded-full animate-spin mx-auto mb-5" />
-          <h2 className="text-xl font-bold text-stone-800 mb-2">Processing Order</h2>
-          <p className="text-stone-500 text-sm">Please wait while we process your payment...</p>
+          <h2 className="text-xl font-bold text-stone-800 mb-2">Обработка заказа</h2>
+          <p className="text-stone-500 text-sm">Пожалуйста, подождите, пока мы обработаем ваш платёж...</p>
         </div>
       </div>
     );
@@ -91,7 +91,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 bg-white rounded-t-3xl border-b border-stone-100 p-5 flex items-center justify-between z-10">
-          <h2 className="text-lg font-bold text-stone-800">Checkout</h2>
+          <h2 className="text-lg font-bold text-stone-800">Оформление заказа</h2>
           <button
             onClick={onClose}
             className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors"
@@ -103,7 +103,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
         <form onSubmit={handleSubmit} className="p-5 space-y-5">
           {/* Order Summary */}
           <div className="bg-stone-50 rounded-xl p-4">
-            <h3 className="text-sm font-semibold text-stone-700 mb-3">Order Summary</h3>
+            <h3 className="text-sm font-semibold text-stone-700 mb-3">Сводка заказа</h3>
             <div className="space-y-2">
               {items.map((item) => (
                 <div key={item.product.id} className="flex justify-between text-sm">
@@ -113,7 +113,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
               ))}
             </div>
             <div className="border-t border-stone-200 mt-3 pt-3 flex justify-between">
-              <span className="font-bold text-stone-800">Total</span>
+              <span className="font-bold text-stone-800">Итого</span>
               <span className="font-bold text-amber-900 text-lg">${total.toFixed(2)}</span>
             </div>
           </div>
@@ -122,13 +122,13 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
           <div>
             <h3 className="text-sm font-semibold text-stone-700 mb-3 flex items-center gap-2">
               <Truck size={16} className="text-amber-700" />
-              Shipping Information
+              Информация о доставке
             </h3>
             <div className="space-y-3">
               <input
                 type="text"
                 name="name"
-                placeholder="Full Name"
+                placeholder="Полное имя"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -137,7 +137,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
               <input
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                placeholder="Email адрес"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -146,7 +146,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
               <input
                 type="text"
                 name="address"
-                placeholder="Street Address"
+                placeholder="Адрес"
                 value={formData.address}
                 onChange={handleChange}
                 required
@@ -156,7 +156,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
                 <input
                   type="text"
                   name="city"
-                  placeholder="City"
+                  placeholder="Город"
                   value={formData.city}
                   onChange={handleChange}
                   required
@@ -165,7 +165,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
                 <input
                   type="text"
                   name="zip"
-                  placeholder="ZIP Code"
+                  placeholder="Почтовый индекс"
                   value={formData.zip}
                   onChange={handleChange}
                   required
@@ -179,13 +179,13 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
           <div>
             <h3 className="text-sm font-semibold text-stone-700 mb-3 flex items-center gap-2">
               <CreditCard size={16} className="text-amber-700" />
-              Payment Details
+              Платёжные данные
             </h3>
             <div className="space-y-3">
               <input
                 type="text"
                 name="card"
-                placeholder="Card Number"
+                placeholder="Номер карты"
                 value={formData.card}
                 onChange={handleChange}
                 required
@@ -195,7 +195,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
                 <input
                   type="text"
                   name="expiry"
-                  placeholder="MM/YY"
+                  placeholder="ММ/ГГ"
                   value={formData.expiry}
                   onChange={handleChange}
                   required
@@ -217,7 +217,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
           {/* Security Badge */}
           <div className="flex items-center gap-2 text-xs text-stone-400">
             <Shield size={14} />
-            <span>Your payment information is secure and encrypted</span>
+            <span>Ваши платёжные данные защищены и зашифрованы</span>
           </div>
 
           {/* Submit */}
@@ -225,7 +225,7 @@ export default function Checkout({ items, onClose, onComplete }: CheckoutProps) 
             type="submit"
             className="w-full py-3.5 bg-amber-800 text-white rounded-xl font-medium hover:bg-amber-700 transition-colors shadow-lg shadow-amber-800/20"
           >
-            Place Order — ${total.toFixed(2)}
+            Подтвердить заказ — ${total.toFixed(2)}
           </button>
         </form>
       </div>

@@ -35,7 +35,7 @@ export default function Cart({ items, isOpen, onClose, onUpdateQuantity, onRemov
         <div className="flex items-center justify-between p-5 border-b border-stone-100">
           <div className="flex items-center gap-2">
             <ShoppingBag size={22} className="text-amber-800" />
-            <h2 className="text-lg font-bold text-stone-800">Your Cart</h2>
+            <h2 className="text-lg font-bold text-stone-800">Ваша корзина</h2>
             {itemCount > 0 && (
               <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-medium rounded-full">
                 {itemCount}
@@ -57,8 +57,8 @@ export default function Cart({ items, isOpen, onClose, onUpdateQuantity, onRemov
               <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mb-4">
                 <ShoppingBag size={32} className="text-stone-300" />
               </div>
-              <p className="text-stone-500 font-medium">Your cart is empty</p>
-              <p className="text-stone-400 text-sm mt-1">Add some specialty coffee to get started</p>
+              <p className="text-stone-500 font-medium">Ваша корзина пуста</p>
+              <p className="text-stone-400 text-sm mt-1">Добавьте спешелти-кофе, чтобы начать</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -109,22 +109,22 @@ export default function Cart({ items, isOpen, onClose, onUpdateQuantity, onRemov
         {items.length > 0 && (
           <div className="p-5 border-t border-stone-100 bg-stone-50/50">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-stone-500">Subtotal</span>
+              <span className="text-sm text-stone-500">Подытог</span>
               <span className="text-sm font-medium text-stone-700">${total.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-stone-500">Shipping</span>
-              <span className="text-sm font-medium text-green-600">Free</span>
+              <span className="text-sm text-stone-500">Доставка</span>
+              <span className="text-sm font-medium text-green-600">Бесплатно</span>
             </div>
             <div className="flex items-center justify-between mb-4 pt-2 border-t border-stone-200">
-              <span className="text-base font-bold text-stone-800">Total</span>
+              <span className="text-base font-bold text-stone-800">Итого</span>
               <span className="text-xl font-bold text-amber-900">${total.toFixed(2)}</span>
             </div>
             <button
               onClick={onCheckout}
               className="w-full py-3.5 bg-amber-800 text-white rounded-xl font-medium hover:bg-amber-700 transition-colors shadow-lg shadow-amber-800/20"
             >
-              Proceed to Checkout
+              Оформить заказ
             </button>
           </div>
         )}
